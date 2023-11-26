@@ -1,0 +1,43 @@
+      body{
+            background-color: blueviolet;
+            font-size: xx-large;
+            text-align: center;
+
+         }  
+         h1{
+            color: azure;
+
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: oblique;
+text-align: center;
+         } 
+         a{
+            color: white;
+            
+         }
+         button{
+            background-color: darkblue;
+            font-weight: bolder;
+            font-size: xx-large;
+            font-style: inherit;
+            font-family:Verdana, Geneva, Tahoma, sans-serif ;
+         }
+         p{
+            color: azure;
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: oblique;
+
+         }
+         h2{
+            color: azure;
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: oblique;
+           
+            }
+
+            
+            
+        

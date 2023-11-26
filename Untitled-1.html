@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Action Game</title>
+    <style>
+        canvas {
+            background-color: #000;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Player object
+        const player = {
+            x: 50,
+            y: canvas.height - 30,
+            width: 30,
+            height: 30,
+            speed: 5,
+            dx: 0
+        };
+
+        // Obstacle object
+        const obstacle = {
+            x: canvas.width - 50,
+            y: canvas.height - 30,
+            width: 30,
+            height: 30,
+            speed: 3
+        };
+
+        function drawPlayer() {
+            ctx.fillStyle = "#FF5733";
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+        }
+
+        function drawObstacle() {
+            ctx.fillStyle = "#00FF00";
+            ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+        }
+
+        function update() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Move the player
+            player.x += player.dx;
+
+            // Move the obstacle
+            obstacle.x -= obstacle.speed;
+
+            // Draw the player and obstacle
+            drawPlayer();
+            drawObstacle();
+
+            // Check for collision
+            if (
+                player.x < obstacle.x + obstacle.width &&
+                player.x + player.width > obstacle.x &&
+                player.y < obstacle.y + obstacle.height &&
+                player.y + player.height > obstacle.y
+            ) {
+                alert("Game Over!");
+                document.location.reload();
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Keyboard input
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowLeft") {
+                player.dx = -player.speed;
+            } else if (event.key === "ArrowRight") {
+                player.dx = player.speed;
+            }
+        });
+
+        document.addEventListener("keyup", function(event) {
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                player.dx = 0;
+            }
+        });
+
+        // Start the game loop
+        update();
+    </script>
+</body>
+</html>
+
